@@ -1,24 +1,7 @@
+import { FormProps } from '@/typings';
 import Link from 'next/link';
-import { type } from 'os';
-import { Dispatch, SetStateAction } from 'react';
 
-type Props = {
-  type: string;
-  post: {
-    prompt: string;
-    tag: string;
-  };
-  setPost: Dispatch<
-    SetStateAction<{
-      prompt: string;
-      tag: string;
-    }>
-  >;
-  submitting: boolean;
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
-};
-
-const Form = ({ type, post, setPost, submitting, handleSubmit }: Props) => {
+const Form = ({ type, post, setPost, submitting, handleSubmit }: FormProps) => {
   return (
     <section className="w-full max-w-full flex-start flex-col">
       <h1 className="head-text text-left">

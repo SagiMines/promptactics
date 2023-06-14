@@ -1,5 +1,5 @@
 import { connectToDB } from '@/utils/database';
-import NextAuth from 'next-auth';
+import NextAuth, { Profile } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import User from '@/models/user';
 
@@ -35,7 +35,7 @@ const handler = NextAuth({
           await User.create({
             email: profile?.email,
             username: profile?.name?.replace(' ', '').toLowerCase(),
-            image: profile?.image,
+            image: profile?.picture,
           });
         }
         return true;
