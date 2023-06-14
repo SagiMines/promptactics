@@ -8,4 +8,10 @@ declare module 'next-auth' {
   interface Session extends DefaultSession {
     user?: User;
   }
+
+  interface NewProfile {
+    picture: string;
+  }
+
+  interface Profile extends NewProfile {}
 }
