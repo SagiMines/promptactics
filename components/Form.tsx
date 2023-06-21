@@ -34,7 +34,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }: FormProps) => {
             Tag
             <span className="font-normal">
               {' '}
-              (#product, #webdevelopment, #idea)
+              (product, webdevelopment, idea)
             </span>
           </span>
           <input
