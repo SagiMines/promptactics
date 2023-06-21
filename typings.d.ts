@@ -13,10 +13,12 @@ type Post = {
 };
 
 type HandleTagClick = {
-  handleTagClick: (tag: string) => void;
+  handleTagClick?: (tag: string) => void;
 };
 
 export type PromptCardProps = HandleTagClick & {
+  handleEdit?: (post: Post) => void;
+  handleDelete?: (post: Post) => void;
   post: Post;
 };
 
@@ -37,10 +39,18 @@ export type FormProps = {
     }>
   >;
   submitting: boolean;
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
+  handleSubmit?: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
 };
 
 type ProviderProps = {
   children?: React.ReactNode;
   session?: Session | null | undefined;
+};
+
+export type ProfileProps = {
+  name: string;
+  desc: string;
+  data: Post[];
+  handleEdit: (post: Post) => void;
+  handleDelete: (post: Post) => void;
 };
