@@ -15,7 +15,6 @@ import { BuiltInProviderType } from 'next-auth/providers';
 
 const Nav = () => {
   const { data: session } = useSession();
-  console.log(session);
   const [providers, setProviders] = useState<Record<
     LiteralUnion<BuiltInProviderType, string>,
     ClientSafeProvider

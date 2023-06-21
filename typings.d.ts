@@ -51,6 +51,6 @@ export type ProfileProps = {
   name: string;
   desc: string;
   data: Post[];
-  handleEdit: (post: Post) => void;
-  handleDelete: (post: Post) => void;
+  handleEdit?: (post: Post) => void;
+  handleDelete?: (post: Post) => void;
 };
