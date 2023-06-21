@@ -22,12 +22,15 @@ const PromptCard = ({
     navigator.clipboard.writeText(post?.prompt);
     setTimeout(() => setCopied(''), 3000);
   };
-
   return (
     <div className="prompt-card">
       <div className="flex justify-between items-start gap-5">
         <Link
-          href={`/profile/${post?.creator?._id}?name=${post?.creator?.username}`}
+          href={
+            session?.user?.id.toString() === post?.creator?._id
+              ? '/profile'
+              : `/profile/${post?.creator?._id}?name=${post?.creator?.username}`
+          }
         >
           <div className="flex-1 flex justify-start items-center gap-3 cursor-pointer">
             <Image
