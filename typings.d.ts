@@ -50,7 +50,7 @@ type ProviderProps = {
 export type ProfileProps = {
   name: string;
   desc: string;
-  data: Post[];
+  data: Post[] | undefined;
   handleEdit?: (post: Post) => void;
   handleDelete?: (post: Post) => void;
 };

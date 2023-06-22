@@ -7,7 +7,7 @@ import { useParams, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const DynamicPage = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<Post[]>();
   const searchParams = useSearchParams();
   const params = useParams();
 
