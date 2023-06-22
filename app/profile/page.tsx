@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 const MyProfile = () => {
   const router = useRouter();
   const { data: session } = useSession();
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<Post[]>();
 
   const handleEdit = (post: Post) => {
     router.push(`/update-prompt?id=${post._id}`);
@@ -26,9 +26,8 @@ const MyProfile = () => {
           method: 'DELETE',
         });
 
-        const filteredPosts = posts.filter(p => p._id !== post._id);
-
-        setPosts([...filteredPosts]);
+        const filteredPosts = posts?.filter(p => p._id !== post._id);
+        if (filteredPosts) setPosts([...filteredPosts]);
       } catch (err) {
         console.log(err);
       }
@@ -43,7 +42,7 @@ const MyProfile = () => {
     };
 
     if (session?.user?.id) fetchPosts();
-  }, []);
+  }, [session]);
 
   return (
     <Profile

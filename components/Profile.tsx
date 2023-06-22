@@ -1,9 +1,11 @@
 import { ProfileProps } from '@/typings';
 import PromptCard from './PromptCard';
+import LoadingGif from './LoadingGif';
+
 const Profile = ({
   name,
-  desc,
   data,
+  desc,
   handleEdit,
   handleDelete,
 }: ProfileProps) => {
@@ -13,8 +15,13 @@ const Profile = ({
         <span className="blue-gradient">{name} Profile</span>
       </h1>
       <p className="desc text-left">{desc}</p>
+      {!data && (
+        <div className="mt-20 flex-center">
+          <LoadingGif />
+        </div>
+      )}
       <div className="mt-10 prompt-layout">
-        {data.map(post => (
+        {data?.map(post => (
           <PromptCard
             key={post._id}
             post={post}

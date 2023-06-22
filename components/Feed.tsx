@@ -4,6 +4,7 @@ import { callAPI } from '@/utils/server';
 import { useEffect, useState } from 'react';
 import PromptCard from './PromptCard';
 import { Post, PromptCardListProps } from '@/typings';
+import LoadingGif from './LoadingGif';
 
 const PromptCardList = ({ data, handleTagClick }: PromptCardListProps) => {
   return (
@@ -20,7 +21,7 @@ const PromptCardList = ({ data, handleTagClick }: PromptCardListProps) => {
 };
 const Feed = () => {
   const [searchText, setSearchText] = useState('');
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<Post[]>();
 
   // When the seach text changes
   const handleSearchChange = async (e: React.FormEvent<HTMLInputElement>) => {
@@ -78,8 +79,12 @@ const Feed = () => {
           className="search-input peer"
         />
       </form>
-
-      <PromptCardList data={posts} handleTagClick={handleTagClick} />
+      {!posts && (
+        <div className="w-full flex-center mt-20">
+          <LoadingGif />
+        </div>
+      )}
+      {posts && <PromptCardList data={posts} handleTagClick={handleTagClick} />}
     </section>
   );
 };
