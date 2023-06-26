@@ -9,7 +9,7 @@ export const GET = async (
   try {
     await connectToDB();
     const prompts = await Prompt.find({
-      tag: { $regex: params.text },
+      tag: { $regex: /^params.text$/i },
     }).populate('creator');
     return new Response(JSON.stringify(prompts), { status: 200 });
   } catch (err) {

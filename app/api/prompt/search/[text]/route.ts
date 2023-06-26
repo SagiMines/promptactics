@@ -13,9 +13,11 @@ export const GET = async (
     // Filter the prompts manually
     const filteredPrompts = prompts.filter(
       prompt =>
-        prompt.creator.username.includes(params.text) ||
-        prompt.prompt.includes(params.text) ||
-        prompt.tag.includes(params.text)
+        prompt.creator.username
+          .toLowerCase()
+          .includes(params.text.toLowerCase()) ||
+        prompt.prompt.toLowerCase().includes(params.text.toLowerCase()) ||
+        prompt.tag.toLowerCase().includes(params.text.toLowerCase())
     );
 
     return new Response(JSON.stringify(filteredPrompts), { status: 200 });

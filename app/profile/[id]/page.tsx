@@ -13,7 +13,7 @@ const DynamicPage = () => {
 
   const userName = searchParams.get('name') || '';
   const getPosts = async () => {
-    const req = await callAPI(`/api/prompt/search/username/${params.id}`);
+    const req = await callAPI(`/api/users/${params.id}/posts`);
     const res = await req.json();
     setPosts([...res]);
   };

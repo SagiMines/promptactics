@@ -22,8 +22,9 @@ export type PromptCardProps = HandleTagClick & {
   post: Post;
 };
 
-export type PromptCardListProps = HandleTagClick & {
-  data: Post[];
+export type PromptCardListProps = {
+  searchText: string;
+  setSearchText: Dispatch<SetStateAction<string>>;
 };
 
 export type FormProps = {
