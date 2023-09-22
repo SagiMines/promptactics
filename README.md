@@ -7,6 +7,8 @@
 </a>
 Welcome to Promptactics, an open-source AI prompting tool designed for the modern world. With Promptactics, users can discover, create, and share creative prompts. This platform allows users to sign in, share their prompts with the community, and manage their prompts by editing or deleting them. Promptactics is built using React with Next.js 13 and uses a MongoDB database for data storage. API calls are made using the serverless features of Next.js.
 
+#### **[Live Demo](https://promptactics.vercel.app/)**
+
 ## Table of Contents
 
 - [Overview](#overview)
